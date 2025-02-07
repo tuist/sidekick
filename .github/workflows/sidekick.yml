@@ -1,0 +1,36 @@
+name: Sidekick
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group: {}
+
+concurrency:
+  group: sidekick-${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  MIX_ENV: test
+  MISE_EXPERIMENTAL: 1
+
+jobs:
+  test:
+    name: Test
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - name: Restore Cache
+        uses: actions/cache@v3
+        id: mix-cache
+        with:
+          path: |
+            deps
+            _build
+            _site
+          key: mix-${{ hashFiles('mix.lock') }}
+      - name: Run tests
+        run: mix test
