@@ -1,6 +1,7 @@
 [tools]
 "elixir" = "1.18.1"
 "erlang" = "27.2"
+"git-cliff" = "2.6.1"
 
 [hooks]
 postinstall = ["mix deps.get"]
