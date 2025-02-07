@@ -1,6 +1,6 @@
 [tools]
 "elixir" = "1.18.2"
-"erlang" = "27.2"
+"erlang" = "27.2.2"
 "git-cliff" = "2.6.1"
 
 [hooks]
