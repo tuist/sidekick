@@ -16,6 +16,23 @@ env:
   MISE_EXPERIMENTAL: 1
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - name: Restore Cache
+        uses: actions/cache@v3
+        id: mix-cache
+        with:
+          path: |
+            deps
+            _build
+            _site
+          key: mix-${{ hashFiles('mix.lock') }}
+      - run: mise run lint
   test:
     name: Test
     runs-on: "ubuntu-latest"
@@ -32,5 +49,4 @@ jobs:
             _build
             _site
           key: mix-${{ hashFiles('mix.lock') }}
-      - name: Run tests
-        run: mix test
+      - run: mix test
