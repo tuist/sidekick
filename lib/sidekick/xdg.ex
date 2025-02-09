@@ -16,7 +16,13 @@ defmodule Sidekick.XDG do
   end
 
   def data_dirs do
-    System.get_env("XDG_DATA_DIRS") || [Path.join("/usr/local/share"), Path.join("/usr", "share")]
+    xdg_data_dirs = System.get_env("XDG_DATA_DIRS")
+
+    if is_nil(xdg_data_dirs) do
+      String.split(xdg_data_dirs, ":")
+    else
+      ["/usr/local/share", "/usr/share"]
+    end
   end
 
   def config_dirs do

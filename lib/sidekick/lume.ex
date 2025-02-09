@@ -15,9 +15,5 @@ defmodule Sidekick.Lume do
 
   require Logger
 
-  def download do
-    OctoFetch.download()
-  end
-
-  def download_name(version, _, _), do: "lume.tar.gz"
+  def download_name(_, _, _), do: "lume.tar.gz"
 end
