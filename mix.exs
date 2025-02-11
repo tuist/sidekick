@@ -7,7 +7,8 @@ defmodule Sidekick.MixProject do
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      releases: releases()
     ]
   end
 
@@ -26,7 +27,22 @@ defmodule Sidekick.MixProject do
       {:styler, "~> 1.2", only: [:dev, :test], runtime: false},
       {:mimic, "~> 1.10", only: :test},
       {:req, "~> 0.5.0"},
-      {:temp, "~> 0.4"}
+      {:temp, "~> 0.4"},
+      {:burrito, "~> 1.0"}
+    ]
+  end
+
+  def releases do
+    [
+      sidekick: [
+        steps: [:assemble, &Burrito.wrap/1],
+        burrito: [
+          targets: [
+            macos: [os: :darwin, cpu: :aarch64],
+            linux: [os: :linux, cpu: :x86_64]
+          ]
+        ]
+      ]
     ]
   end
 end

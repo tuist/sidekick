@@ -23,3 +23,5 @@ sidekick-*.tar
 /tmp/
 
 .DS_Store
+
+burrito_out/
