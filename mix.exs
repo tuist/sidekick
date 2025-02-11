@@ -25,7 +25,8 @@ defmodule Sidekick.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:styler, "~> 1.2", only: [:dev, :test], runtime: false},
       {:mimic, "~> 1.10", only: :test},
-      {:octo_fetch, "~> 0.4.0"}
+      {:req, "~> 0.5.0"},
+      {:temp, "~> 0.4"}
     ]
   end
 end
