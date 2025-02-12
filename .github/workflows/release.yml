@@ -77,8 +77,8 @@ jobs:
           echo "RELEASE_NOTES<<EOF" >> "$GITHUB_OUTPUT"
           git cliff --latest >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
-      - run: mise release:macos
-      - run: mise release:linux
+      - run: mise run release:macos
+      - run: mise run release:linux
       - name: Generate checksum
         uses: jmgilman/actions-generate-checksum@v1
         with:
