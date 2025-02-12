@@ -32,6 +32,7 @@ jobs:
       - uses: jdx/mise-action@v2
         with:
           experimental: true
+      - run: brew install xz
       - name: Check if there are releasable changes
         id: is-releasable
         run: |

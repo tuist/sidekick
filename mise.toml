@@ -2,6 +2,7 @@
 "elixir" = "1.18.2"
 "erlang" = "27.2.2"
 "git-cliff" = "2.6.1"
+"zig" = "0.13.0"
 
 [hooks]
 postinstall = ["mix deps.get"]
