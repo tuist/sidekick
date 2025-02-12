@@ -12,6 +12,7 @@ on:
 
 env:
   MISE_EXPERIMENTAL: 1
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
   contents: write
