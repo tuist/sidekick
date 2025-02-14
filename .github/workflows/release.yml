@@ -80,11 +80,12 @@ jobs:
           echo "EOF" >> "$GITHUB_OUTPUT"
       - run: mise run release:macos
       - run: mise run release:linux
-      - name: Generate checksum
-        uses: jmgilman/actions-generate-checksum@v1
-        with:
-          patterns: |
-            burrito_out/*
+      - run: |
+          mv burrito_out/sidekick_linux burrito_out/sidekick-linux-arm64
+          mv burrito_out/sidekick_macos burrito_out/sidekick-macos-arm64
+          tar -czvf burrito_out/sidekick-linux-arm64.tar.gz burrito_out/sidekick-linux-arm64
+          tar -czvf burrito_out/sidekick-macos-arm64.tar.gz burrito_out/sidekick-macos-arm64
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         if: env.should-release == 'true'
@@ -96,6 +97,11 @@ jobs:
           body: ${{ steps.release-notes.outputs.RELEASE_NOTES }}
           target_commitish: ${{ steps.auto-commit-action.outputs.commit_hash }}
           files: |
-            checksum.txt
-            burrito_out/sidekick_linux
-            burrito_out/sidekick_macos
+            burrito_out/sidekick-linux-arm64
+            burrito_out/sidekick-linux-arm64.tar.gz
+            burrito_out/sidekick-linux-arm64
+            burrito_out/sidekick-linux-arm64.tar.gz
+      - name: Generate checksums
+        uses: thewh1teagle/checksum@v1
+        with:
+          tag: ${{ steps.next-version.outputs.NEXT_VERSION }}
