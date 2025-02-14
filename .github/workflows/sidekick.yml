@@ -40,6 +40,18 @@ jobs:
       - env:
           SIDEKICK_VERSION: 0.1.0
         run: mise run release:linux
+      - name: Sign macOS binary
+        env:
+          MACOS_SIGNING_CERTIFICATE_BASE64: ${{ secrets.MACOS_SIGNING_CERTIFICATE_BASE64 }}
+        run: |
+          TMP_DIR=/private$(mktemp -d)
+          CERTIFICATE_NAME="Developer ID Application: Tuist GmbH (U6LC622NKF)"
+          KEYCHAIN_PASSWORD=$(uuidgen)
+          KEYCHAIN_PATH=$TMP_DIR/certificates/temp.keychain
+          echo $MACOS_SIGNING_CERTIFICATE_BASE64 | base64 --decode > $TMP_DIR/certificate.p12
+          keychain initialize -p $KEYCHAIN_PATH
+          keychain add-certificates --certificate $TMP_DIR/certificate.p12 --certificate-password $CERTIFICATE_PASSWORD -A
+          /usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose burrito_out/sidekick_macos
 
   lint:
     name: Lint
