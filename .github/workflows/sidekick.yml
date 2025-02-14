@@ -17,7 +17,7 @@ env:
 
 jobs:
   dry_release:
-    name: Lint
+    name: Dry release
     runs-on: "macos-latest"
     timeout-minutes: 15
     steps:
