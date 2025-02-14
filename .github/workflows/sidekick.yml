@@ -49,6 +49,7 @@ jobs:
           KEYCHAIN_PASSWORD=$(uuidgen)
           KEYCHAIN_PATH=$TMP_DIR/keychain.keychain
           CERTIFICATE_PATH=$TMP_DIR/certificate.p12
+          CERTIFICATE_NAME="Developer ID Application: Tuist GmbH (U6LC622NKF)"
 
           echo "$MACOS_SIGNING_CERTIFICATE_BASE64" | base64 --decode > $CERTIFICATE_PATH
           security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
