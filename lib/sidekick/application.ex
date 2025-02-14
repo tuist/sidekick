@@ -5,6 +5,8 @@ defmodule Sidekick.Application do
 
   use Application
 
+  require Logger
+
   @impl true
   def start(_type, _args) do
     children = [
@@ -16,5 +18,18 @@ defmodule Sidekick.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Sidekick.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  defp log_banner do
+    banner = ~s"""
+    _____ _     _      _    _      _
+    /  ___(_)   | |    | |  (_)    | |
+    \ `--. _  __| | ___| | ___  ___| | __
+     `--. \ |/ _` |/ _ \ |/ / |/ __| |/ /
+    /\__/ / | (_| |  __/   <| | (__|   <
+    \____/|_|\__,_|\___|_|\_\_|\___|_|\_\
+    """
+
+    Logger.info(banner)
   end
 end
