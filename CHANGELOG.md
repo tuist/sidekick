@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.9] - 2025-02-14
+### Details
+#### Fix
+- Downgrade the Erlang version to make the burrito binary work by @pepicrft
+
 ## [0.1.8] - 2025-02-14
 ### Details
 #### Chore
@@ -56,6 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @pepicrft made their first contribution
 * @renovate[bot] made their first contribution in [#3](https://github.com/tuist/sidekick/pull/3)
+[0.1.9]: https://github.com/tuist/sidekick/compare/0.1.8..0.1.9
 [0.1.8]: https://github.com/tuist/sidekick/compare/0.1.7..0.1.8
 [0.1.7]: https://github.com/tuist/sidekick/compare/0.1.6..0.1.7
 [0.1.6]: https://github.com/tuist/sidekick/compare/0.1.5..0.1.6
