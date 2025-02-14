@@ -7,7 +7,22 @@ The server communicates with `sidekick` using the OTP protocol.
 
 ## Usage
 
-Add the dependency to your `mix.exs` file:
+Sidekick is a combination of a daemon/agent that runs in hosts and that another Elixir application (e.g. a web server) can communicate with to run tasks in a different environment,
+and a library that provides the API to communicate with the agent.
+
+### Run the agent
+
+Sidekick distributes the agent as a portable binary built using [Burrito](https://github.com/burrito-elixir/burrito).
+Every release includes the agent binary for macOS and Linux. You can install them using [Ubi](https://github.com/houseabsolute/ubi):
+
+```bash
+ubi -t 0.1.9 -p tuist/sidekick
+bin/sidekick
+```
+
+### Integrate the library
+
+To integrate Sidekick as a library, add the dependency to your `mix.exs` file:
 
 ```elixir
 defp deps do
