@@ -16,6 +16,30 @@ env:
   MISE_EXPERIMENTAL: 1
 
 jobs:
+  dry_release:
+    name: Lint
+    runs-on: "macos-latest"
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - name: Restore Cache
+        uses: actions/cache@v4
+        id: mix-cache
+        with:
+          path: |
+            deps
+            _build
+            _site
+          key: mix-${{ hashFiles('mix.lock') }}
+      - run: mise run lint
+      - env:
+          SIDEKICK_VERSION: 0.1.0
+        run: mise run release:macos
+      - env:
+          SIDEKICK_VERSION: 0.1.0
+        run: mise run release:linux
+
   lint:
     name: Lint
     runs-on: "ubuntu-latest"
