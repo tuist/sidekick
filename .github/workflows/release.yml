@@ -78,8 +78,12 @@ jobs:
           echo "RELEASE_NOTES<<EOF" >> "$GITHUB_OUTPUT"
           git cliff --latest >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
-      - run: mise run release:macos
-      - run: mise run release:linux
+      - env:
+          SIDEKICK_VERSION: ${{ steps.next-version.outputs.NEXT_VERSION }}
+        run: mise run release:macos
+      - env:
+          SIDEKICK_VERSION: ${{ steps.next-version.outputs.NEXT_VERSION }}
+        run: mise run release:linux
       - run: |
           mv burrito_out/sidekick_linux burrito_out/sidekick-linux-arm64
           mv burrito_out/sidekick_macos burrito_out/sidekick-macos-arm64
