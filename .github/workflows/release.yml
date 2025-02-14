@@ -99,8 +99,8 @@ jobs:
           files: |
             burrito_out/sidekick-linux-arm64
             burrito_out/sidekick-linux-arm64.tar.gz
-            burrito_out/sidekick-linux-arm64
-            burrito_out/sidekick-linux-arm64.tar.gz
+            burrito_out/sidekick-macos-arm64
+            burrito_out/sidekick-macos-arm64.tar.gz
       - name: Generate checksums
         uses: thewh1teagle/checksum@v1
         with:
