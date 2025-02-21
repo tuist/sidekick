@@ -62,7 +62,7 @@ defmodule Sidekick.Podman do
     if String.ends_with?(compressed_file_path, "zip") do
       {:ok, _} = :zip.extract(String.to_charlist(compressed_file_path), [{:cwd, String.to_charlist(directory(opts))}])
     else
-      {:ok, _} =
+      :ok =
         :erl_tar.extract(String.to_charlist(compressed_file_path), [
           {:cwd, String.to_charlist(directory(opts))},
           :compressed,
