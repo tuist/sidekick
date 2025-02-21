@@ -40,7 +40,10 @@ defmodule Sidekick.Podman do
   end
 
   defp podman_binary_path(opts) do
-    Path.join(bin_directory(opts), "podman")
+    case Host.os() do
+      :linux -> Path.join(bin_directory(opts), "podman-remote-static-linux_amd64")
+      :macos -> Path.join(bin_directory(opts), "podman")
+    end
   end
 
   defp make_binaries_executable(opts) do
@@ -52,8 +55,13 @@ defmodule Sidekick.Podman do
   end
 
   defp bin_directory(opts) do
-    path = Path.join(directory(opts), "podman-#{@version}/usr/bin")
-    if File.exists?(path), do: path
+    case Host.os() do
+      :linux ->
+        Path.join(directory(opts), "bin")
+
+      :macos ->
+        Path.join(directory(opts), "podman-#{@version}/usr/bin")
+    end
   end
 
   defp extract(compressed_file_path, opts) do
