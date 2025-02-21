@@ -107,7 +107,14 @@ defmodule Sidekick.Podman do
   end
 
   defp release_asset_name do
-    case {Host.os(), Host.arch()} do
+    arch =
+      case Host.arch() do
+        :x86_64 -> "amd64"
+        :x86 -> "amd64"
+        arch -> "#{arch}"
+      end
+
+    case {Host.os(), arch} do
       {:linux, arch} ->
         "podman-remote-static-linux_#{arch}.tar.gz"
 
