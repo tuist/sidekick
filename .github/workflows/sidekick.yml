@@ -78,7 +78,7 @@ jobs:
           key: mix-${{ hashFiles('mix.lock') }}
       - run: mise run lint
   test:
-    name: Test on ${{ matrix.version }}
+    name: Test on ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
