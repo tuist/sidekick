@@ -12,6 +12,11 @@ defmodule Sidekick.Podman do
   def version, do: @version
 
   def download_if_absent(opts \\ []) do
+    binary_path = podman_binary_path(opts)
+    if not File.exists?(binary_path), do: download(ops), else: binary_path
+  end
+
+  def download(opts \\ []) do
     temporary_directory = Temp.mkdir!()
     download_path = Path.join(temporary_directory, release_asset_name())
     download_url = download_url()
@@ -21,7 +26,10 @@ defmodule Sidekick.Podman do
     try do
       %{status: 200} = Req.get!(download_url, into: File.stream!(download_path))
 
-      Logger.debug("Comparing the shasums of the downloaded #{release_asset_name()} against the remote shasum")
+      Logger.debug(
+        "Comparing the shasums of the downloaded #{release_asset_name()} against the remote shasum"
+      )
+
       local_shasum = calculate_sha256(download_path)
       remote_shasum = remote_shasum()
 
@@ -68,7 +76,10 @@ defmodule Sidekick.Podman do
     Logger.debug("Extracting #{compressed_file_path} to #{directory(opts)}")
 
     if String.ends_with?(compressed_file_path, "zip") do
-      {:ok, _} = :zip.extract(String.to_charlist(compressed_file_path), [{:cwd, String.to_charlist(directory(opts))}])
+      {:ok, _} =
+        :zip.extract(String.to_charlist(compressed_file_path), [
+          {:cwd, String.to_charlist(directory(opts))}
+        ])
     else
       :ok =
         :erl_tar.extract(String.to_charlist(compressed_file_path), [
@@ -100,7 +111,9 @@ defmodule Sidekick.Podman do
 
   defp remote_shasum do
     shasums_content =
-      "https://github.com/containers/podman/releases/download/v5.4.0/shasums" |> Req.get!() |> Map.get(:body)
+      "https://github.com/containers/podman/releases/download/v5.4.0/shasums"
+      |> Req.get!()
+      |> Map.get(:body)
 
     filename = release_asset_name()
 
