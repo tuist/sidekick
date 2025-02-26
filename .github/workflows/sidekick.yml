@@ -78,8 +78,11 @@ jobs:
           key: mix-${{ hashFiles('mix.lock') }}
       - run: mise run lint
   test:
-    name: Test
-    runs-on: "ubuntu-latest"
+    name: Test on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
