@@ -9,14 +9,48 @@ defmodule Sidekick.Podman do
 
   @version "5.4.0"
 
+  @doc ~s"""
+  It returns the Podman version this version of Sidekick is pinned to.
+  """
   def version, do: @version
 
+  @doc ~s"""
+  Downloads Podman #{@version} and extracts it into a directory for local usage.
+  The version of Podman is tied to a version of Sidekick for determinism reasons to ease debugging and reasoning
+  about Sidekick.
+
+  ## Parameters
+
+    - `opts`:
+      - `cache_dir`: The cache directory where Podman will be downloaded. When not present, it falls back to the application configuration `[:sidekick, :cache_dir]` or the `sidekick` directory inside the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) cache home directory.
+
+  ## Returns
+
+  It returns a string path to the Podman binary.
+
+  ## Examples
+
+  In the default XDG cache home directory:
+
+        iex> Sidekick.Podman.download_if_absent()
+        "~/.cache/sidekick/podman/versions/5.4.0/podman-5.4.0/usr/bin/podman"
+  """
   def download_if_absent(opts \\ []) do
-    binary_path = podman_binary_path(opts)
-    if not File.exists?(binary_path), do: download(ops), else: binary_path
+    binary_path = binary_path(opts)
+    if File.exists?(binary_path), do: binary_path, else: download(opts)
   end
 
-  def download(opts \\ []) do
+  @doc ~S"""
+  It returns a `String` path to the Lume binary.
+  """
+  def binary_path(opts) do
+    case Host.os() do
+      :linux -> Path.join(bin_directory(opts), "podman-remote-static-linux_amd64")
+      :macos -> Path.join(bin_directory(opts), "podman")
+    end
+  end
+
+  defp download(opts \\ []) do
     temporary_directory = Temp.mkdir!()
     download_path = Path.join(temporary_directory, release_asset_name())
     download_url = download_url()
@@ -26,9 +60,7 @@ defmodule Sidekick.Podman do
     try do
       %{status: 200} = Req.get!(download_url, into: File.stream!(download_path))
 
-      Logger.debug(
-        "Comparing the shasums of the downloaded #{release_asset_name()} against the remote shasum"
-      )
+      Logger.debug("Comparing the shasums of the downloaded #{release_asset_name()} against the remote shasum")
 
       local_shasum = calculate_sha256(download_path)
       remote_shasum = remote_shasum()
@@ -44,14 +76,7 @@ defmodule Sidekick.Podman do
 
     make_binaries_executable(opts)
 
-    podman_binary_path(opts)
-  end
-
-  defp podman_binary_path(opts) do
-    case Host.os() do
-      :linux -> Path.join(bin_directory(opts), "podman-remote-static-linux_amd64")
-      :macos -> Path.join(bin_directory(opts), "podman")
-    end
+    binary_path(opts)
   end
 
   defp make_binaries_executable(opts) do
@@ -143,7 +168,7 @@ defmodule Sidekick.Podman do
         "podman-remote-release-darwin_#{arch}.zip"
 
       {_, _} ->
-        raise "Sidekick doesn't support this OS/arch combination for Podman."
+        raise "Sidekick doesn't support this OS/arch combination."
     end
   end
 
