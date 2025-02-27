@@ -1,6 +1,6 @@
 defmodule Sidekick.Lume do
   @moduledoc ~S"""
-  This module provides an manage the Luma instance and interact with it.
+  This module provides and manage the Luma instance and interact with it.
   """
 
   alias Sidekick.Host
