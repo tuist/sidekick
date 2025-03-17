@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.2] - 2025-03-17
+### Details
+#### Chore
+- Update dependency styler to v1.4.1 by @renovate[bot] in [#19](https://github.com/tuist/sidekick/pull/19)
+
 ## [0.4.1] - 2025-03-06
 ### Details
 #### Chore
@@ -91,6 +96,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @pepicrft made their first contribution
 * @renovate[bot] made their first contribution in [#3](https://github.com/tuist/sidekick/pull/3)
+[0.4.2]: https://github.com/tuist/sidekick/compare/0.4.1..0.4.2
 [0.4.1]: https://github.com/tuist/sidekick/compare/0.4.0..0.4.1
 [0.4.0]: https://github.com/tuist/sidekick/compare/0.3.0..0.4.0
 [0.3.0]: https://github.com/tuist/sidekick/compare/0.2.1..0.3.0
