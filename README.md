@@ -23,3 +23,11 @@ You can self-host Runforge following our docs, or do a one-click deployment to R
 
 1. Git clone the repo: `git@github.com:tuist/agent.git`.
 2. Install dependencies with `mise install`.
+
+### Monorepo
+
+The repository is a monorepo with the following projects:
+
+- [`agent`](./agent): It's a portable Elixir application that runs in the host.
+- [`app`](./app): It's an Elixir library (to integrate with another app) along with a Phoenix application to host the web interface.
+- [`docs`](./docs): It's a documentation static website available at [runforge.dev](https://runforge.dev).
