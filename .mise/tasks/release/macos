@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-#MISE description="Creates a Linux release"
-
-(cd $MISE_PROJECT_ROOT && MIX_ENV=prod BURRITO_TARGET=macos mix release --overwrite)

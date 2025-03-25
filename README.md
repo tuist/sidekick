@@ -1,42 +1,13 @@
-# Sidekick
+# Runforge
 
-[![Sidekick](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml/badge.svg)](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml)
+Runforge is an orchestrator of CI runners for companies building software. It acts as a bridge between Git forges (e.g. [GitHub](https://github.com), [GitLab](https://gitlab.com), [Forgejo](https://forgejo.org/)), and cloud providers (e.g. [AWS](https://aws.amazon.com/), [Azure](https://azure.microsoft.com/en-us/), [GCP](https://cloud.google.com/), [Scaleway](ttps://www.scaleway.com/en/)).
 
-Sidekick is an Elixir application (daemon) for the Tuist server to run tasks (e.g. virtualized operation) in other environments.
-The server communicates with `sidekick` using the OTP protocol.
-
-## Usage
-
-Sidekick is a combination of a daemon/agent that runs in hosts and that another Elixir application (e.g. a web server) can communicate with to run tasks in a different environment,
-and a library that provides the API to communicate with the agent.
-
-### Run the agent
-
-Sidekick distributes the agent as a portable binary built using [Burrito](https://github.com/burrito-elixir/burrito).
-Every release includes the agent binary for macOS and Linux. You can install them using [Ubi](https://github.com/houseabsolute/ubi):
-
-```bash
-ubi -t 0.1.9 -p tuist/sidekick
-bin/sidekick
-```
-
-### Integrate the library
-
-To integrate Sidekick as a library, add the dependency to your `mix.exs` file:
-
-```elixir
-defp deps do
-  [
-    # Other dependencies
-    {:sidekick, git: "https://github.com/tuist/sidekick.git", tag: "0.1", runtime: false}
-  ]
-end
-```
+> [!WARNING]
+> The project is currently being worked on.
 
 ## Development
 
 ### Setup
 
-1. Git clone the repo: `git@github.com:tuist/sidekick.git`.
+1. Git clone the repo: `git@github.com:tuist/agent.git`.
 2. Install dependencies with `mise install`.
-3. Run the tests with `mix test`

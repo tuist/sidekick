@@ -5,4 +5,4 @@
 "zig" = "0.13.0"
 
 [hooks]
-postinstall = ["mix deps.get"]
+postinstall = ["mise run install"]

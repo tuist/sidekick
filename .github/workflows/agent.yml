@@ -1,4 +1,4 @@
-name: Sidekick
+name: Agent
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   merge_group: {}
 
 concurrency:
-  group: sidekick-${{ github.head_ref }}
+  group: agent-${{ github.head_ref }}
   cancel-in-progress: true
 
 env:
@@ -29,17 +29,16 @@ jobs:
         id: mix-cache
         with:
           path: |
-            deps
-            _build
-            _site
-          key: mix-${{ hashFiles('mix.lock') }}
-      - run: mise run lint
+            agent/deps
+            agent/_build
+            agent/_site
+          key: mix-agent-${{ hashFiles('agent/mix.lock') }}
       - env:
           SIDEKICK_VERSION: 0.1.0
-        run: mise run release:macos
+        run: mise run agent:release:macos
       - env:
           SIDEKICK_VERSION: 0.1.0
-        run: mise run release:linux
+        run: mise run agent:release:linux
       - name: Sign macOS binary
         env:
           MACOS_SIGNING_CERTIFICATE_BASE64: ${{ secrets.MACOS_SIGNING_CERTIFICATE_BASE64 }}
@@ -58,7 +57,7 @@ jobs:
           security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
           security import $CERTIFICATE_PATH -P $CERTIFICATE_PASSWORD -A
 
-          /usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose burrito_out/sidekick_macos
+          /usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose agent/burrito_out/sidekick_macos
 
   lint:
     name: Lint
@@ -72,11 +71,11 @@ jobs:
         id: mix-cache
         with:
           path: |
-            deps
-            _build
-            _site
-          key: mix-${{ hashFiles('mix.lock') }}
-      - run: mise run lint
+            agent/deps
+            agent/_build
+            agent/_site
+          key: mix-agent-${{ hashFiles('agent/mix.lock') }}
+      - run: mise run agent:lint
   test:
     name: Test on ${{ matrix.os }}
     strategy:
@@ -92,8 +91,8 @@ jobs:
         id: mix-cache
         with:
           path: |
-            deps
-            _build
-            _site
-          key: mix-${{ hashFiles('mix.lock') }}
-      - run: mix test
+            agent/deps
+            agent/_build
+            agent/_site
+          key: mix-agent-${{ hashFiles('agent/mix.lock') }}
+      - run: mise run agent:test
