@@ -31,3 +31,7 @@ The repository is a monorepo with the following projects:
 - [`agent`](./agent): It's a portable Elixir application that runs in the host.
 - [`app`](./app): It's an Elixir library (to integrate with another app) along with a Phoenix application to host the web interface.
 - [`docs`](./docs): It's a documentation static website available at [runforge.dev](https://runforge.dev).
+
+### Releasing
+
+The project follows [semantic versioning](https://semver.org/) releasing new versions automatically when releasable changes are detected in `main`. The application is pushed to the GitHub registry and the [Hex packages](https://hex.pm/) directory, and the agent published as an artifact in the GitHub release.
