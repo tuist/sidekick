@@ -5,6 +5,9 @@
 "zig" = "0.13.0"
 "sops" = "3.9.3"
 "age" = "1.2.1"
+"pnpm" = "10.6.5"
+"nodejs" = "22.14.0"
+"npm:wrangler" = "4.4.0"
 
 [env]
 _.file = ".env.json"
