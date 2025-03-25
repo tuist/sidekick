@@ -1,14 +1,12 @@
-name: Docs
+name: Docs Deployment
 
 on:
   push:
     branches:
       - main
-  pull_request:
-  merge_group: {}
 
 concurrency:
-  group: docs-${{ github.head_ref }}
+  group: docs-deployment-${{ github.head_ref }}
   cancel-in-progress: true
 
 env:
@@ -16,11 +14,11 @@ env:
   MISE_SOPS_AGE_KEY: ${{ secrets.MISE_SOPS_AGE_KEY }}
 
 jobs:
-  build:
-    name: Build
+  cloudflare:
+    name: Cloudflare
     runs-on: "ubuntu-latest"
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
-      - run: mise run docs:build
+      - run: mise run docs:deploy
