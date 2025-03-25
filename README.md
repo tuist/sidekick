@@ -5,6 +5,18 @@ Runforge is an orchestrator of CI runners for companies building software. It ac
 > [!WARNING]
 > The project is currently being worked on.
 
+## Usage
+
+### Tuist
+
+You can use the instance hosted by [Tuist](https://tuist.dev), either by bringing your cloud provider or using Tuist's.
+
+### Self-host
+
+You can self-host Runforge following our docs, or do a one-click deployment to Render:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
 ## Development
 
 ### Setup
