@@ -14,7 +14,7 @@ concurrency:
 env:
   MIX_ENV: test
   MISE_EXPERIMENTAL: 1
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  MISE_SOPS_AGE_KEY: ${{ secrets.MISE_SOPS_AGE_KEY }}
 
 jobs:
   dry_release:
@@ -40,9 +40,6 @@ jobs:
           SIDEKICK_VERSION: 0.1.0
         run: mise run agent:release:linux
       - name: Sign macOS binary
-        env:
-          MACOS_SIGNING_CERTIFICATE_BASE64: ${{ secrets.MACOS_SIGNING_CERTIFICATE_BASE64 }}
-          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
         run: |
           TMP_DIR=$(mktemp -d)
           KEYCHAIN_PASSWORD=$(uuidgen)

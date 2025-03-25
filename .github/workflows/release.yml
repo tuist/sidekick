@@ -12,7 +12,7 @@ on:
 
 env:
   MISE_EXPERIMENTAL: 1
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  MISE_SOPS_AGE_KEY: ${{ secrets.MISE_SOPS_AGE_KEY }}
 
 permissions:
   contents: write
@@ -52,13 +52,9 @@ jobs:
       - name: Get next version
         id: next-version
         if: env.should-release == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo "NEXT_VERSION=$(git cliff --bumped-version)" >> "$GITHUB_OUTPUT"
       - name: Update CHANGELOG.md
         if: env.should-release == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: git cliff --bump -o CHANGELOG.md
       - name: Commit changes
         id: auto-commit-action
@@ -72,8 +68,6 @@ jobs:
       - name: Get release notes
         id: release-notes
         if: env.should-release == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "RELEASE_NOTES<<EOF" >> "$GITHUB_OUTPUT"
           git cliff --latest >> "$GITHUB_OUTPUT"
@@ -85,9 +79,6 @@ jobs:
           SIDEKICK_VERSION: ${{ steps.next-version.outputs.NEXT_VERSION }}
         run: mise run release:linux
       - name: Sign macOS binary
-        env:
-          MACOS_SIGNING_CERTIFICATE_BASE64: ${{ secrets.MACOS_SIGNING_CERTIFICATE_BASE64 }}
-          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
         run: |
           TMP_DIR=$(mktemp -d)
           KEYCHAIN_PASSWORD=$(uuidgen)

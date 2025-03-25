@@ -3,6 +3,14 @@
 "erlang" = "26.2.5"
 "ubi:orhun/git-cliff" = "2.8.0"
 "zig" = "0.13.0"
+"sops" = "3.9.3"
+"age" = "1.2.1"
+
+[env]
+_.file = ".env.json"
 
 [hooks]
 postinstall = ["mise run install"]
+
+[settings]
+sops.age_key_file = "~/.config/mise/runforge-age.txt"
