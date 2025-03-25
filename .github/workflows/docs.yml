@@ -1,0 +1,26 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group: {}
+
+concurrency:
+  group: docs-${{ github.head_ref }}
+  cancel-in-progress: true
+
+env:
+  MISE_EXPERIMENTAL: 1
+  MISE_SOPS_AGE_KEY: ${{ secrets.MISE_SOPS_AGE_KEY }}
+
+jobs:
+  build:
+    name: Build
+    runs-on: "macos-latest"
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - run: mise run docs:build
