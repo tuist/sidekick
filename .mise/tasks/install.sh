@@ -4,3 +4,4 @@
 set -eo pipefail
 
 (cd agent && mix deps.get)
+pnpm -C docs/ install
