@@ -116,6 +116,6 @@ jobs:
             burrito_out/sidekick-macos-arm64
             burrito_out/sidekick-macos-arm64.tar.gz
       - name: Generate checksums
-        uses: thewh1teagle/checksum@v1
+        uses: thewh1teagle/checksum@v2
         with:
           tag: ${{ steps.next-version.outputs.NEXT_VERSION }}
