@@ -1,6 +1,14 @@
-# Plasma
+## Plasma
 
-Plasma is an orchestrator of CI runners for companies building software. It acts as a bridge between Git forges (e.g. [GitHub](https://github.com), [GitLab](https://gitlab.com), [Forgejo](https://forgejo.org/)), and cloud providers (e.g. [AWS](https://aws.amazon.com/), [Azure](https://azure.microsoft.com/en-us/), [GCP](https://cloud.google.com/), [Scaleway](ttps://www.scaleway.com/en/)).
+**Plasma** aims to simplify the orchestration of containerized environments—ideal for use cases like hosted runners on Git forges such as [GitHub](https://github.com), [GitLab](https://gitlab.com), or [Forgejo](https://forgejo.org). It can scale and provision environments either manually or automatically, using strategies tailored to your CI workloads and demands.
+
+## Motivation
+
+While building features for [Tuist](https://tuist.dev), we realized the need for a fast and cost-effective way to spin up macOS and Linux containers. Unfortunately, this kind of innovation has historically been locked away behind traditional CI providers, who’ve treated it as part of their competitive moat.
+
+We believe this space should be **commoditized**. Lowering the time and cost of remote execution unlocks better developer experiences—faster feedback loops, cheaper experimentation, and greater flexibility.
+
+**Plasma** is our step toward making that a reality.
 
 > [!WARNING]
 > The project is currently being worked on.
