@@ -8,47 +8,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.4] - 2025-03-21
 ### Details
 #### Chore
-- Update dependency req to v0.5.10 by @renovate[bot] in [#21](https://github.com/tuist/sidekick/pull/21)
+- Update dependency req to v0.5.10 by @renovate[bot] in [#21](https://github.com/tuist/plasma/pull/21)
 
 ## [0.4.3] - 2025-03-18
 ### Details
 #### Chore
-- Update dependency req to v0.5.9 by @renovate[bot] in [#20](https://github.com/tuist/sidekick/pull/20)
+- Update dependency req to v0.5.9 by @renovate[bot] in [#20](https://github.com/tuist/plasma/pull/20)
 
 ## [0.4.2] - 2025-03-17
 ### Details
 #### Chore
-- Update dependency styler to v1.4.1 by @renovate[bot] in [#19](https://github.com/tuist/sidekick/pull/19)
+- Update dependency styler to v1.4.1 by @renovate[bot] in [#19](https://github.com/tuist/plasma/pull/19)
 
 ## [0.4.1] - 2025-03-06
 ### Details
 #### Chore
-- Update dependency elixir to v1.18.3 by @renovate[bot] in [#17](https://github.com/tuist/sidekick/pull/17)
+- Update dependency elixir to v1.18.3 by @renovate[bot] in [#17](https://github.com/tuist/plasma/pull/17)
 
 ## [0.4.0] - 2025-02-28
 ### Details
 #### Feat
-- Add logic to download Lume by @pepicrft in [#15](https://github.com/tuist/sidekick/pull/15)
+- Add logic to download Lume by @pepicrft in [#15](https://github.com/tuist/plasma/pull/15)
 
 ## [0.3.0] - 2025-02-26
 ### Details
 #### Feat
-- Add the business logic to download the Podman binary for the host OS and architecture by @pepicrft in [#14](https://github.com/tuist/sidekick/pull/14)
+- Add the business logic to download the Podman binary for the host OS and architecture by @pepicrft in [#14](https://github.com/tuist/plasma/pull/14)
 
 ## [0.2.1] - 2025-02-21
 ### Details
 #### Chore
-- Update dependency styler to v1.4.0 by @renovate[bot] in [#13](https://github.com/tuist/sidekick/pull/13)
+- Update dependency styler to v1.4.0 by @renovate[bot] in [#13](https://github.com/tuist/plasma/pull/13)
 
 ## [0.2.0] - 2025-02-14
 ### Details
 #### Feat
-- Sign the macOS binary by @pepicrft in [#12](https://github.com/tuist/sidekick/pull/12)
+- Sign the macOS binary by @pepicrft in [#12](https://github.com/tuist/plasma/pull/12)
 
 ## [0.1.10] - 2025-02-14
 ### Details
 #### Chore
-- Update dependency erlang to v26.2.5 by @renovate[bot] in [#11](https://github.com/tuist/sidekick/pull/11)
+- Update dependency erlang to v26.2.5 by @renovate[bot] in [#11](https://github.com/tuist/plasma/pull/11)
 
 ## [0.1.9] - 2025-02-14
 ### Details
@@ -100,29 +100,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-02-11
 ### Details
 #### Chore
-- Update dependency erlang to v27.2.2 by @renovate[bot] in [#3](https://github.com/tuist/sidekick/pull/3)
+- Update dependency erlang to v27.2.2 by @renovate[bot] in [#3](https://github.com/tuist/plasma/pull/3)
 - Update dependency elixir to v1.18.2 by @renovate[bot]
 
 ## New Contributors
 * @pepicrft made their first contribution
-* @renovate[bot] made their first contribution in [#3](https://github.com/tuist/sidekick/pull/3)
-[0.4.4]: https://github.com/tuist/sidekick/compare/0.4.3..0.4.4
-[0.4.3]: https://github.com/tuist/sidekick/compare/0.4.2..0.4.3
-[0.4.2]: https://github.com/tuist/sidekick/compare/0.4.1..0.4.2
-[0.4.1]: https://github.com/tuist/sidekick/compare/0.4.0..0.4.1
-[0.4.0]: https://github.com/tuist/sidekick/compare/0.3.0..0.4.0
-[0.3.0]: https://github.com/tuist/sidekick/compare/0.2.1..0.3.0
-[0.2.1]: https://github.com/tuist/sidekick/compare/0.2.0..0.2.1
-[0.2.0]: https://github.com/tuist/sidekick/compare/0.1.10..0.2.0
-[0.1.10]: https://github.com/tuist/sidekick/compare/0.1.9..0.1.10
-[0.1.9]: https://github.com/tuist/sidekick/compare/0.1.8..0.1.9
-[0.1.8]: https://github.com/tuist/sidekick/compare/0.1.7..0.1.8
-[0.1.7]: https://github.com/tuist/sidekick/compare/0.1.6..0.1.7
-[0.1.6]: https://github.com/tuist/sidekick/compare/0.1.5..0.1.6
-[0.1.5]: https://github.com/tuist/sidekick/compare/0.1.4..0.1.5
-[0.1.4]: https://github.com/tuist/sidekick/compare/0.1.3..0.1.4
-[0.1.3]: https://github.com/tuist/sidekick/compare/0.1.2..0.1.3
-[0.1.2]: https://github.com/tuist/sidekick/compare/0.1.1..0.1.2
-[0.1.1]: https://github.com/tuist/sidekick/compare/0.1.0..0.1.1
+* @renovate[bot] made their first contribution in [#3](https://github.com/tuist/plasma/pull/3)
+[0.4.4]: https://github.com/tuist/plasma/compare/0.4.3..0.4.4
+[0.4.3]: https://github.com/tuist/plasma/compare/0.4.2..0.4.3
+[0.4.2]: https://github.com/tuist/plasma/compare/0.4.1..0.4.2
+[0.4.1]: https://github.com/tuist/plasma/compare/0.4.0..0.4.1
+[0.4.0]: https://github.com/tuist/plasma/compare/0.3.0..0.4.0
+[0.3.0]: https://github.com/tuist/plasma/compare/0.2.1..0.3.0
+[0.2.1]: https://github.com/tuist/plasma/compare/0.2.0..0.2.1
+[0.2.0]: https://github.com/tuist/plasma/compare/0.1.10..0.2.0
+[0.1.10]: https://github.com/tuist/plasma/compare/0.1.9..0.1.10
+[0.1.9]: https://github.com/tuist/plasma/compare/0.1.8..0.1.9
+[0.1.8]: https://github.com/tuist/plasma/compare/0.1.7..0.1.8
+[0.1.7]: https://github.com/tuist/plasma/compare/0.1.6..0.1.7
+[0.1.6]: https://github.com/tuist/plasma/compare/0.1.5..0.1.6
+[0.1.5]: https://github.com/tuist/plasma/compare/0.1.4..0.1.5
+[0.1.4]: https://github.com/tuist/plasma/compare/0.1.3..0.1.4
+[0.1.3]: https://github.com/tuist/plasma/compare/0.1.2..0.1.3
+[0.1.2]: https://github.com/tuist/plasma/compare/0.1.1..0.1.2
+[0.1.1]: https://github.com/tuist/plasma/compare/0.1.0..0.1.1
 
 <!-- generated by git-cliff -->
