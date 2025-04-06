@@ -15,6 +15,7 @@ env:
   MIX_ENV: test
   MISE_EXPERIMENTAL: 1
   MISE_SOPS_AGE_KEY: ${{ secrets.MISE_SOPS_AGE_KEY }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   dry_release:

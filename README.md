@@ -9,7 +9,9 @@ Plasma is an orchestrator of CI runners for companies building software. It acts
 
 ### Tuist
 
-You can use the instance hosted by [Tuist](https://tuist.dev), either by bringing your cloud provider or using Tuist's.
+You can use the instance hosted by [Tuist](https://tuist.dev) at [plasma.dev](https://plasma.dev) with any of the two following methods:
+- **Bring-your-infra:** Plug your own infrastructure into Plasma using your infrastructure keys (e.g. AWS).
+- **Use-our-infra:** Use our infrastructure and pay a tax over our infrastructure cost.
 
 ### Your own
 
