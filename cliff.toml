@@ -3,7 +3,7 @@
 
 [remote.github]
 owner = "tuist"
-repo = "runforge"
+repo = "plasma"
 # token = ""
 
 [changelog]

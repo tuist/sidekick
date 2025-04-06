@@ -1,5 +1,5 @@
 {
-  "name": "@runforge/docs",
+  "name": "@plasma/docs",
   "private": true,
   "devDependencies": {
     "vitepress": "^1.6.3"

@@ -16,4 +16,4 @@ _.file = ".env.json"
 postinstall = ["mise run install"]
 
 [settings]
-sops.age_key_file = "~/.config/mise/runforge-age.txt"
+sops.age_key_file = "~/.config/mise/plasma-age.txt"

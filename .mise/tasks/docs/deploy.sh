@@ -4,4 +4,4 @@
 set -eo pipefail
 
 pnpm run -C docs build
-wrangler pages deploy docs/.vitepress/dist --project-name runforge --branch main
+wrangler pages deploy docs/.vitepress/dist --project-name plasmadev-docs --branch main
