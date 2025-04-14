@@ -49,3 +49,7 @@ The repository is a monorepo with the following projects:
 ### Releasing
 
 The project follows [semantic versioning](https://semver.org/) releasing new versions automatically when releasable changes are detected in `main`. A release is represented by a [release](https://github.com/tuist/plasma/releases) on GitHub, which includes portable binaries for the agents, and an [OCI-compliant image](https://github.com/orgs/tuist/packages?repo_name=plasma) to run the web app as a container, for example using [Podman](https://podman.io/) or [Docker](https://www.docker.com/).
+
+## Documentation
+
+The documentation is available at [docs.plasma.dev](https://docs.plasma.dev).

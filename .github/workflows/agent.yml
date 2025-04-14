@@ -18,45 +18,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  dry_release:
-    name: Dry release
-    runs-on: "macos-latest"
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
-      - name: Restore Cache
-        uses: actions/cache@v4
-        id: mix-cache
-        with:
-          path: |
-            agent/deps
-            agent/_build
-            agent/_site
-          key: mix-agent-${{ hashFiles('agent/mix.lock') }}
-      - env:
-          SIDEKICK_VERSION: 0.1.0
-        run: mise run agent:release:macos
-      - env:
-          SIDEKICK_VERSION: 0.1.0
-        run: mise run agent:release:linux
-      - name: Sign macOS binary
-        run: |
-          TMP_DIR=$(mktemp -d)
-          KEYCHAIN_PASSWORD=$(uuidgen)
-          KEYCHAIN_PATH=$TMP_DIR/keychain.keychain
-          CERTIFICATE_PATH=$TMP_DIR/certificate.p12
-          CERTIFICATE_NAME="Developer ID Application: Tuist GmbH (U6LC622NKF)"
-
-          echo "$MACOS_SIGNING_CERTIFICATE_BASE64" | base64 --decode > $CERTIFICATE_PATH
-          security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security default-keychain -s $KEYCHAIN_PATH
-          security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
-          security import $CERTIFICATE_PATH -P $CERTIFICATE_PASSWORD -A
-
-          /usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose agent/burrito_out/sidekick_macos
-
   lint:
     name: Lint
     runs-on: "ubuntu-latest"
