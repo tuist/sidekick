@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.5] - 2025-04-14
+### Details
+#### Chore
+- Update dependency mimic to v1.11.2 by @renovate[bot] in [#25](https://github.com/tuist/plasma/pull/25)
+- Update thewh1teagle/checksum action to v2 by @renovate[bot] in [#24](https://github.com/tuist/plasma/pull/24)
+- Update dependency burrito to v1.3.0 by @renovate[bot] in [#18](https://github.com/tuist/plasma/pull/18)
+- Update dependency zig to v0.14.0 by @renovate[bot] in [#16](https://github.com/tuist/plasma/pull/16)
+
 ## [0.4.4] - 2025-03-21
 ### Details
 #### Chore
@@ -106,6 +114,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @pepicrft made their first contribution
 * @renovate[bot] made their first contribution in [#3](https://github.com/tuist/plasma/pull/3)
+[0.4.5]: https://github.com/tuist/plasma/compare/0.4.4..0.4.5
 [0.4.4]: https://github.com/tuist/plasma/compare/0.4.3..0.4.4
 [0.4.3]: https://github.com/tuist/plasma/compare/0.4.2..0.4.3
 [0.4.2]: https://github.com/tuist/plasma/compare/0.4.1..0.4.2
