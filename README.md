@@ -15,11 +15,15 @@ We believe this space should be **commoditized**. Lowering the time and cost of 
 
 ## Instances
 
-### Tuist
+### [plasma.dev](https://plasma.dev)
 
 You can use the instance hosted by [Tuist](https://tuist.dev) at [plasma.dev](https://plasma.dev) with any of the two following methods:
 - **Bring-your-infra:** Plug your own infrastructure into Plasma using your infrastructure keys (e.g. AWS).
 - **Use-our-infra:** Use our infrastructure and pay a tax over our infrastructure cost.
+
+### [tuist.dev](https://tuist.dev)
+
+If you are already a Tuist user, you can create containers from your account.
 
 ### Your own
 
