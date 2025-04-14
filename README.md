@@ -25,7 +25,7 @@ You can use the instance hosted by [Tuist](https://tuist.dev) at [plasma.dev](ht
 
 If you are already a Tuist user, you can create containers from your account.
 
-### Your own
+### your.own
 
 You can self-host Plasma following our docs, or do a one-click deployment to Render:
 
