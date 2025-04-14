@@ -1,28 +1,28 @@
-defmodule Sidekick.Lume do
+defmodule PlasmaAgent.Lume do
   @moduledoc ~S"""
   This module provides and manage the Luma instance and interact with it.
   """
 
-  alias Sidekick.Host
+  alias PlasmaAgent.Host
 
   require Logger
 
   @version "0.1.9"
 
   @doc ~s"""
-  It returns the Lume version this version of Sidekick is pinned to.
+  It returns the Lume version this version of the agent is pinned to.
   """
   def version, do: @version
 
   @doc ~s"""
   Downloads Lume #{@version} and extracts it into a directory for local usage.
-  The version of Lume is tied to a version of Sidekick for determinism reasons to ease debugging and reasoning
-  about Sidekick.
+  The version of Lume is tied to a version of the Plasma Agent for determinism reasons to ease debugging and reasoning
+  about the agent.
 
   ## Parameters
 
     - `opts`:
-      - `cache_dir`: The cache directory where Lume will be downloaded. When not present, it falls back to the application configuration `[:sidekick, :cache_dir]` or the `sidekick` directory inside the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) cache home directory.
+      - `cache_dir`: The cache directory where Lume will be downloaded. When not present, it falls back to the application configuration `[:plasma_agent, :cache_dir]` or the `plasma_agent` directory inside the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) cache home directory.
 
   ## Returns
 
@@ -32,8 +32,8 @@ defmodule Sidekick.Lume do
 
   In the default XDG cache home directory:
 
-        iex> Sidekick.Lume.download_if_absent()
-        "~/.cache/sidekick/lume/versions/0.1.9/lume"
+        iex> PlasmaAgent.Lume.download_if_absent()
+        "~/.cache/plasma_agent/lume/versions/0.1.9/lume"
   """
   def download_if_absent(opts \\ []) do
     binary_path = binary_path(opts)
@@ -100,8 +100,8 @@ defmodule Sidekick.Lume do
 
   defp directory(opts) do
     Path.join(
-      Keyword.get(opts, :cache_dir) || Application.get_env(:sidekick, :cache_dir) ||
-        XDGBasedir.user_cache_dir("sidekick"),
+      Keyword.get(opts, :cache_dir) || Application.get_env(:plasma_agent, :cache_dir) ||
+        XDGBasedir.user_cache_dir("plasma_agent"),
       "lume/versions/#{@version}/"
     )
   end

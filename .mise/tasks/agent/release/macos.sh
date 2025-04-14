@@ -24,4 +24,4 @@ if [ -z "$CERTIFICATE_EXISTS" ]; then
     security import $CERTIFICATE_PATH -P $CERTIFICATE_PASSWORD -A
 fi
 
-/usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose agent/burrito_out/sidekick_macos
+/usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose agent/burrito_out/plasma_agent_macos

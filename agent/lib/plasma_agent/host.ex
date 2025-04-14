@@ -1,4 +1,4 @@
-defmodule Sidekick.Host do
+defmodule PlasmaAgent.Host do
   @moduledoc false
 
   def os do

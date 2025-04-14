@@ -1,28 +1,28 @@
-defmodule Sidekick.Podman do
+defmodule PlasmaAgent.Podman do
   @moduledoc ~S"""
   This module provides an manage the Podman instance and interact with it.
   """
 
-  alias Sidekick.Host
+  alias PlasmaAgent.Host
 
   require Logger
 
   @version "5.4.0"
 
   @doc ~s"""
-  It returns the Podman version this version of Sidekick is pinned to.
+  It returns the Podman version this version of the the agent is pinned to.
   """
   def version, do: @version
 
   @doc ~s"""
   Downloads Podman #{@version} and extracts it into a directory for local usage.
-  The version of Podman is tied to a version of Sidekick for determinism reasons to ease debugging and reasoning
-  about Sidekick.
+  The version of Podman is tied to a version of the agent for determinism reasons to ease debugging and reasoning
+  about the agent.
 
   ## Parameters
 
     - `opts`:
-      - `cache_dir`: The cache directory where Podman will be downloaded. When not present, it falls back to the application configuration `[:sidekick, :cache_dir]` or the `sidekick` directory inside the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) cache home directory.
+      - `cache_dir`: The cache directory where Podman will be downloaded. When not present, it falls back to the application configuration `[:plasma_agent, :cache_dir]` or the `plasma_agent` directory inside the [XDG](https://specifications.freedesktop.org/basedir-spec/latest/) cache home directory.
 
   ## Returns
 
@@ -32,8 +32,8 @@ defmodule Sidekick.Podman do
 
   In the default XDG cache home directory:
 
-        iex> Sidekick.Podman.download_if_absent()
-        "~/.cache/sidekick/podman/versions/5.4.0/podman-5.4.0/usr/bin/podman"
+        iex> PlasmaAgent.Podman.download_if_absent()
+        "~/.cache/plasma_agent/podman/versions/5.4.0/podman-5.4.0/usr/bin/podman"
   """
   def download_if_absent(opts \\ []) do
     binary_path = binary_path(opts)
@@ -128,8 +128,8 @@ defmodule Sidekick.Podman do
 
   defp directory(opts) do
     Path.join(
-      Keyword.get(opts, :cache_dir) || Application.get_env(:sidekick, :cache_dir) ||
-        XDGBasedir.user_cache_dir("sidekick"),
+      Keyword.get(opts, :cache_dir) || Application.get_env(:plasma_agent, :cache_dir) ||
+        XDGBasedir.user_cache_dir("plasma_agent"),
       "podman/versions/#{@version}/"
     )
   end
@@ -168,7 +168,7 @@ defmodule Sidekick.Podman do
         "podman-remote-release-darwin_#{arch}.zip"
 
       {_, _} ->
-        raise "Sidekick doesn't support this OS/arch combination."
+        raise "The plasma_agent doesn't support this OS/arch combination."
     end
   end
 

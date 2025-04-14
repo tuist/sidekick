@@ -1,12 +1,12 @@
-defmodule Sidekick.LumeTest do
+defmodule PlasmaAgent.LumeTest do
   use ExUnit.Case
 
-  alias Sidekick.Lume
+  alias PlasmaAgent.Lume
 
   @tag :tmp_dir
   test "downloads lume successfully", %{tmp_dir: tmp_dir} do
     # Lume is a macOS tool.
-    if Sidekick.Host == :macos do
+    if PlasmaAgent.Host == :macos do
       # When
       executable_path = Lume.download_if_absent(cache_dir: tmp_dir)
 

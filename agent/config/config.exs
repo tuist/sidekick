@@ -1,3 +1,3 @@
 import Config
 
-config :sidekick, :version, System.get_env("SIDEKICK_VERSION", "not-found")
+config :plasma_agent, :version, System.get_env("PLASMA_AGENT_VERSION", "not-found")

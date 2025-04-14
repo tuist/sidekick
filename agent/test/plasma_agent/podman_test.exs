@@ -1,7 +1,7 @@
-defmodule Sidekick.PodmanTest do
+defmodule PlasmaAgent.PodmanTest do
   use ExUnit.Case
 
-  alias Sidekick.Podman
+  alias PlasmaAgent.Podman
 
   @tag :tmp_dir
   test "downloads podman successfully", %{tmp_dir: tmp_dir} do

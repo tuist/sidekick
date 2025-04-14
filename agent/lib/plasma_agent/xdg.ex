@@ -1,4 +1,4 @@
-defmodule Sidekick.XDG do
+defmodule PlasmaAgent.XDG do
   @moduledoc """
   XDG Base Directory Specification
   """

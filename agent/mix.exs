@@ -1,9 +1,9 @@
-defmodule Sidekick.MixProject do
+defmodule PlasmaAgent.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :sidekick,
+      app: :plasma_agent,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -16,7 +16,7 @@ defmodule Sidekick.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Sidekick.Application, []}
+      mod: {PlasmaAgent.Application, []}
     ]
   end
 
@@ -35,7 +35,7 @@ defmodule Sidekick.MixProject do
 
   def releases do
     [
-      sidekick: [
+      plasma_agent: [
         steps: [:assemble, &Burrito.wrap/1],
         burrito: [
           targets: [

@@ -1,6 +1,6 @@
-defmodule Sidekick do
+defmodule PlasmaAgent do
   @moduledoc """
-  Documentation for `Sidekick`.
+  Documentation for `PlsmaAgent`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Sidekick do
 
   ## Examples
 
-      iex> Sidekick.hello()
+      iex> PlasmaAgent.hello()
       :world
 
   """

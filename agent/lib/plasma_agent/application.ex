@@ -1,4 +1,4 @@
-defmodule Sidekick.Application do
+defmodule PlasmaAgent.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,15 +9,15 @@ defmodule Sidekick.Application do
 
   @impl true
   def start(_type, _args) do
-    Logger.info("Starting Sidekick")
-    Logger.info("Version: #{Application.fetch_env!(:sidekick, :version)}")
+    Logger.info("Starting Plasma Agent")
+    Logger.info("Version: #{Application.fetch_env!(:plasma_agent, :version)}")
 
     children = [
       # Starts a worker by calling: Sidekick.Worker.start_link(arg)
-      # {Sidekick.Worker, arg}
+      # {PlasmaAgent.Worker, arg}
     ]
 
-    opts = [strategy: :one_for_one, name: Sidekick.Supervisor]
+    opts = [strategy: :one_for_one, name: PlasmaAgent.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end
