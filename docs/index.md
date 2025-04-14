@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Plasma"
-  text: "Orchestrate CI runners"
-  tagline: My great project tagline
+  text: "Remote Containers"
+  tagline: As a Service (RCaaS)
   actions:
     - theme: brand
       text: Markdown Examples
@@ -15,10 +15,16 @@ hero:
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: ⚡️
+    title: Bring your infrastructure
+    details: Integrate Plasma with your cloud provider (e.g., <a href="https://aws.amazon.com">AWS</a>, or <a href="https://scaleway.com">Scaleway</a>) and we take care of the rest.
+  - icon: 🐙
+    title: CI-runner containers
+    details: Turn the containers into CI runners that you can plug into <a href="https://github.com">GitHub</a>, <a href="https://gitlab.com">GitLab</a>, or <a href="https://forgejo.org/">Forgejo</a>. We add a little tax over your infrastructure costs.
+  - icon: 🌱
+    title: Open source
+    details: You are free to read, study, and modify Plasma's source code under the terms of the MIT License.
+  - icon: 🌍
+    title: Instances
+    details: Use our hosted instance, or host Plasma in your own servers. It's design for ease of hosting and powered by the Erlang VM for fault-tolerance.
 ---

@@ -189,3 +189,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,elixir,node
+
+docs/.vitepress/cache/
