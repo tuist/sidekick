@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.10] - 2025-04-21
+### Details
+#### Chore
+- Update dependency pnpm to v10.9.0 by @renovate[bot] in [#30](https://github.com/tuist/plasma/pull/30)
+
 ## [0.4.9] - 2025-04-21
 ### Details
 #### Chore
@@ -136,6 +141,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## New Contributors
 * @pepicrft made their first contribution
 * @renovate[bot] made their first contribution in [#3](https://github.com/tuist/plasma/pull/3)
+[0.4.10]: https://github.com/tuist/plasma/compare/0.4.9..0.4.10
 [0.4.9]: https://github.com/tuist/plasma/compare/0.4.8..0.4.9
 [0.4.8]: https://github.com/tuist/plasma/compare/0.4.7..0.4.8
 [0.4.7]: https://github.com/tuist/plasma/compare/0.4.6..0.4.7
