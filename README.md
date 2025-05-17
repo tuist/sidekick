@@ -1,4 +1,7 @@
-# Sidekick
+<div align="center">
+  <img width="200px" src="/assets/logo.png" alt="Logo">
+  <h1>Your Heading Text</h1>
+</div>
 
 [![Sidekick](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml/badge.svg)](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml)
 
