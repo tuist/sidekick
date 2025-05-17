@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#MISE description="Sign the macOS binary"
+
+set -eo pipefail
+
+TMP_DIR=/private$(mktemp -d)
+trap "rm -rf $TMP_DIR" EXIT
+
+if [ "${CI:-}" = "true" ]; then
+    echo "Creating a temporary keychain"
+    KEYCHAIN_PASSWORD=$(uuidgen)
+    KEYCHAIN_PATH=$TMP_DIR/certificates/temp.keychain
+    security create-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+    security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+    security default-keychain -s $KEYCHAIN_PATH
+    security unlock-keychain -p $KEYCHAIN_PASSWORD $KEYCHAIN_PATH
+fi
+
+echo "Importing certificates"
+# echo $BASE_64_CERTIFICATE | base64 --decode > $TMP_DIR/certificate.p12 && security import $TMP_DIR/certificate.p12 -P $CERTIFICATE_PASSWORD -A
+# /usr/bin/codesign --sign "$CERTIFICATE_NAME" --timestamp --options runtime --verbose burrito_out/sidekick_macos
