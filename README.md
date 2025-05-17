@@ -1,11 +1,10 @@
 <div align="center">
   <img width="200px" src="/assets/logo.png" alt="Logo">
   <h1>Sidekick</h1>
+  <a href="https://github.com/tuist/sidekick/actions/workflows/sidekick.yml"><img src="https://github.com/tuist/sidekick/actions/workflows/sidekick.yml/badge.svg"/></a>
 </div>
 
-[![Sidekick](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml/badge.svg)](https://github.com/tuist/sidekick/actions/workflows/sidekick.yml)
-
-Sidekick is an Elixir application (daemon) for the Tuist server to run tasks (e.g. virtualized operation) in other environments.
+Sidekick is an Elixir application (daemon) for the Tuist server to run tasks (e.g. containarized task) in remote environments.
 The server communicates with `sidekick` using the OTP protocol.
 
 ## Usage
