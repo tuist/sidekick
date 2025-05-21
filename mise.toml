@@ -1,6 +1,6 @@
 [tools]
 "elixir" = "1.18.3"
-"erlang" = "26.2.5"
+"erlang" = "28.0"
 "ubi:orhun/git-cliff" = "2.8.0"
 "zig" = "0.13.0"
 
